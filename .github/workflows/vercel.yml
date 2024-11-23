@@ -3,7 +3,7 @@ name: Git push into another repo to deploy to Vercel
 on:
   push:
     branches:
-      - "*"
+      - "main"
 
 jobs:
   build:
