@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import clientPromise from "@/app/lib/db";
+import { GetLeaderBoard } from "@/types/getLeaderBoard";
 
 export const POST = async () => {
       try {
@@ -9,7 +10,7 @@ export const POST = async () => {
 
         const data = await collection.find({}).toArray();
         const response = data.map(({ _id, ...rest }) => rest);
-        return NextResponse.json(response, { status: 200 });
+        return NextResponse.json(response as GetLeaderBoard, { status: 200 });
       } catch (error) {
         console.log(error);
         return NextResponse.json(
