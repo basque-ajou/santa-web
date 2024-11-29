@@ -24,6 +24,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .bg-gradient-custom {
+    background: linear-gradient(to bottom, #FFC9C9 0%, #FFFFFF 11%);
+  }
 }
 
 /* 웹킷 기반 브라우저 (Chrome, Safari 등) */
