@@ -8,7 +8,6 @@ export const ChatRoom = () => {
   const [submittedGift, setSubmittedGift] = useState("");
   const [submittedPrompt, setSubmittedPrompt] = useState("");
   const [santaSays, setSantaSays] = useState("");
-  //bg-gradient-custom fixed left-0 top-0 flex w-[1360px] flex-col rounded-[30px] border-2 p-[44px]
   return (
     <div className="flex h-[640px] w-[1360px] flex-col items-center transition-transform duration-500 md:z-20 md:pl-[40px]">
       <Top />
