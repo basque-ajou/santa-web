@@ -35,26 +35,44 @@ export const ChatBottom = ({
     }
   };
   return (
-    <div className="fixed bottom-0 flex h-fit">
-      <div className="flex flex-col">
-        <input
-          className={
-            "w-[1042px] rounded-[55px] border border-[#363636] px-[38px] py-8"
-          }
-          placeholder={"받고 싶은 선물을 적어주세요."}
-          onChange={(e) => setGift(e.target.value)}
-        />
-        <input
-          className={
-            "w-[1042px] rounded-[55px] border border-[#363636] px-[38px] py-8"
-          }
-          placeholder={"선물을 받고 싶은 이유를 적어주세요."}
-          onChange={(e) => setPrompt(e.target.value)}
-        />
+    <div className="fixed bottom-0 flex h-fit w-full justify-center gap-4">
+      <div className="flex flex-col gap-4">
+        <div className={"flex items-center gap-[19px]"}>
+          <img
+            className={
+              "h-[66px] w-[66px] rounded-full border border-black bg-white"
+            }
+            src={"/christmas-sock.png"}
+            alt={"chirstmas-sock"}
+          />
+          <input
+            className={
+              "w-[1042px] rounded-[55px] border border-[#363636] px-[38px] py-8"
+            }
+            placeholder={"받고 싶은 선물을 적어주세요."}
+            onChange={(e) => setGift(e.target.value)}
+          />
+        </div>
+        <div className={"flex items-center gap-[19px]"}>
+          <img
+            className={
+              "h-[66px] w-[66px] rounded-full border border-black bg-white"
+            }
+            src={"/jingle-bell.png"}
+            alt={"jingle-bell"}
+          />
+          <input
+            className={
+              "w-[1042px] rounded-[55px] border border-[#363636] px-[38px] py-8"
+            }
+            placeholder={"선물을 받고 싶은 이유를 적어주세요."}
+            onChange={(e) => setPrompt(e.target.value)}
+          />
+        </div>
       </div>
       <button
         className={
-          "border- rounded-[30px] border-[#363636] bg-[#C9FFDE] px-[36px]"
+          "border-1 rounded-[30px] border-[#363636] bg-[#C9FFDE] px-[36px]"
         }
         onClick={onClickHandler}
       >
