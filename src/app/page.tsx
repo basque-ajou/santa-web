@@ -1,15 +1,19 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-const Home = async () => {
+const Home = () => {
   const router = useRouter();
   return (
-    <main className="container mx-auto min-h-screen p-6 align-middle">
-      <p className={"font-bold"}>서비스 로고</p>
-      <div className="flex min-h-screen items-center justify-around">
+    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-[#FBFFC9] p-6 align-middle">
+      <img
+        className={"h-[136px] w-[562px]"}
+        src={"/santa-tell.png"}
+        alt={"santa-logo"}
+      />
+      <div className="flex min-h-screen w-full items-center justify-around">
         <div
-          className={"flex flex-col justify-between"}
-          onClick={() => router.push("/chat")}
+          className={"flex flex-col justify-between hover:cursor-pointer"}
+          onClick={() => router.push("/name")}
         >
           <div className="flex h-[465px] w-[465px] flex-col justify-center justify-items-center rounded-[40px] bg-[#FFC9C9]">
             <div className="flex flex-col items-center">
@@ -29,12 +33,14 @@ const Home = async () => {
         <div className={"flex flex-col justify-between"}>
           <div className="flex h-[465px] w-[465px] flex-col justify-center justify-items-center rounded-[40px] bg-[#C9FFDE]">
             <div className="flex flex-col items-center">
-              <Image
-                src={"/main/christmasDate.png"}
-                width={320}
-                height={329}
-                alt={"santa"}
-              />
+              <div className={"flex flex-col"}>
+                <Image
+                  src={"/main/christmasDate.png"}
+                  width={320}
+                  height={329}
+                  alt={"santa"}
+                />
+              </div>
             </div>
           </div>
           <div className={"justify-items-center text-[35px]"}>
