@@ -30,3 +30,18 @@ export const countDocuments = async (
   const collection = await getCollection(collectionName);
   return collection.countDocuments(query);
 };
+
+export const getDocuments = async (
+  collectionName: string,
+  id?: string,
+  query: Record<string, unknown> = {},
+) => {
+  const collection = await getCollection(collectionName);
+
+  if (id) {
+    // @ts-ignore
+    return await collection.findOne({ _id: id, ...query });
+  } else {
+    return await collection.find(query).toArray();
+  }
+};
