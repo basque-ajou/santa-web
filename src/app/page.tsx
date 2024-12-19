@@ -12,12 +12,12 @@ const Home = () => {
         src={"/big-santa-tell.png"}
         alt={"santa-logo"}
       />
-      <div className="flex min-h-screen w-full items-center justify-around">
+      <div className="flex w-full items-center justify-around">
         <div
           className={"flex flex-col justify-between hover:cursor-pointer"}
           onClick={() => router.push("/name")}
         >
-          <div className="flex h-[465px] w-[465px] flex-col justify-center justify-items-center rounded-[40px] bg-[#FFC9C9]">
+          <div className="flex h-96 w-96 flex-col justify-center justify-items-center rounded-[40px] border border-[#363636] bg-[#FFC9C9]">
             <div className="flex flex-col items-center">
               <Image
                 src={"/main/santa.png"}
@@ -35,7 +35,7 @@ const Home = () => {
           </div>
         </div>
         <div className={"flex flex-col justify-between"}>
-          <div className="flex h-[465px] w-[465px] flex-col justify-center justify-items-center rounded-[40px] bg-[#C9FFDE]">
+          <div className="flex h-96 w-96 flex-col justify-center justify-items-center rounded-[40px] border border-[#363636] bg-[#C9FFDE]">
             <div className="flex flex-col items-center">
               <div className={"flex flex-col hover:cursor-pointer"}>
                 <Image
