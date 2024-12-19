@@ -55,10 +55,10 @@ const Name = () => {
             산타와 대화할 별명을 입력해주세요.
           </div>
         </div>
-        <div className={"flex gap-4"}>
+        <div className={"flex w-full items-center justify-center gap-4 pt-8"}>
           <input
             className={
-              "w-[900px] rounded-[40px] border-[15px] border-[#363636] px-[34px] py-[22px] text-[35px] focus:outline-none"
+              "h-28 w-[925px] rounded-[40px] border-[15px] border-[#363636] px-[34px] py-[22px] text-2xl shadow-stone-50 focus:outline-none"
             }
             onKeyDown={handleKeyDown}
             placeholder={"여기에 적어주세요."}
