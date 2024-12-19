@@ -25,7 +25,9 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className={"justify-items-center text-[35px]"}>
+          <div
+            className={"justify-items-center text-[35px] hover:cursor-pointer"}
+          >
             <p>Chat with Santa</p>
             <p className={"font-bold"}>산타와 대화하기</p>
           </div>
@@ -33,7 +35,7 @@ const Home = () => {
         <div className={"flex flex-col justify-between"}>
           <div className="flex h-[465px] w-[465px] flex-col justify-center justify-items-center rounded-[40px] bg-[#C9FFDE]">
             <div className="flex flex-col items-center">
-              <div className={"flex flex-col"}>
+              <div className={"flex flex-col hover:cursor-pointer"}>
                 <Image
                   src={"/main/christmasDate.png"}
                   width={320}
@@ -43,7 +45,9 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className={"justify-items-center text-[35px]"}>
+          <div
+            className={"justify-items-center text-[35px] hover:cursor-pointer"}
+          >
             <p>Leaderboard</p>
             <p className={"font-bold"}>순위 경쟁하기</p>
           </div>
