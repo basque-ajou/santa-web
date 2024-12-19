@@ -2,6 +2,8 @@
 import { useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
+
 const Name = () => {
   const router = useRouter();
   const [nickName, setNickName] = useState("");
@@ -37,7 +39,13 @@ const Name = () => {
           />
           <div>뒤로 가기</div>
         </div>
-        <img src={"/santa-tell.png"} alt={"santa-tell"} />
+        <Image
+          className={"absolute top-0 pt-4"}
+          width={562}
+          height={145}
+          src={"/big-santa-tell.png"}
+          alt={"santa-logo"}
+        />
       </div>
       <div className={"flex flex-col items-center justify-center"}>
         <div className={"flex flex-col items-center gap-[18px]"}>
