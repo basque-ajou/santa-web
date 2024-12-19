@@ -5,9 +5,11 @@ const Home = () => {
   const router = useRouter();
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-[#FBFFC9] p-6 align-middle">
-      <img
-        className={"h-[136px] w-[562px]"}
-        src={"/santa-tell.png"}
+      <Image
+        className={"absolute top-0 pt-4"}
+        width={562}
+        height={145}
+        src={"/big-santa-tell.png"}
         alt={"santa-logo"}
       />
       <div className="flex min-h-screen w-full items-center justify-around">
