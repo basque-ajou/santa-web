@@ -49,9 +49,11 @@ const Name = () => {
         />
       </div>
       <div className={"flex flex-col items-center justify-center"}>
-        <div className={"flex flex-col items-center gap-[18px]"}>
-          <div>산타와 대화하자</div>
-          <div>산타와 대화할 별명을 입력해주세요.</div>
+        <div className={"flex flex-col items-center justify-center gap-[18px]"}>
+          <div className={"text-2xl font-bold"}>산타와 대화하자</div>
+          <div className={"text-2xl font-normal text-[#363636]"}>
+            산타와 대화할 별명을 입력해주세요.
+          </div>
         </div>
         <div className={"flex gap-4"}>
           <input
