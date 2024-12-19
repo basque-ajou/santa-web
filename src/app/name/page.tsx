@@ -27,11 +27,15 @@ const Name = () => {
   }, []);
   return (
     <div
-      className={"flex min-h-screen flex-col items-center px-[72px] pt-[40px]"}
+      className={
+        "flex min-h-screen flex-col items-center justify-center px-[72px] pt-[40px]"
+      }
     >
       <div className={"flex items-center justify-center"}>
         <div
-          className={"fixed left-0 flex items-center justify-center gap-[20px]"}
+          className={
+            "absolute left-0 top-0 flex items-center justify-center gap-[20px] p-16"
+          }
         >
           <img
             className={"w-[42px]"}
