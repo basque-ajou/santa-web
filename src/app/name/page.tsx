@@ -38,7 +38,7 @@ const Name = () => {
             src={"/back-arrow.png"}
             alt={"back-btn"}
           />
-          <div>뒤로 가기</div>
+          <div className={"text-2xl font-bold"}>뒤로가기</div>
         </div>
         <Image
           className={"absolute top-0 pt-4"}
