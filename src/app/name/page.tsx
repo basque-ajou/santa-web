@@ -1,7 +1,8 @@
 "use client";
-import { useRef, useEffect } from "react";
+
+import { useRef, useState, useEffect } from "react";
+
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import Image from "next/image";
 
 const Name = () => {
