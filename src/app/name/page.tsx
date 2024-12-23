@@ -15,16 +15,24 @@ const Name = () => {
       alert("별명을 입력해주세요");
       return;
     }
-    router.push(`/chat?name=${encodeURIComponent(nickName)}`);
+    saveToLocalStorage();
+    router.push("/chat");
   };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleClick();
     }
   };
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem("nickName", nickName);
+  };
+
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
+
   return (
     <div
       className={
@@ -36,6 +44,7 @@ const Name = () => {
           className={
             "absolute left-0 top-0 flex items-center justify-center gap-[20px] p-16"
           }
+          onClick={() => router.back()}
         >
           <img
             className={"w-[42px]"}
