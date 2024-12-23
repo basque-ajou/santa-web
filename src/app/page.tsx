@@ -17,7 +17,7 @@ const Home = () => {
           className={"flex flex-col justify-between hover:cursor-pointer"}
           onClick={() => router.push("/name")}
         >
-          <div className="flex h-96 w-96 flex-col justify-center justify-items-center rounded-[40px] border border-[#363636] bg-[#FFC9C9]">
+          <div className="md: flex h-96 w-96 flex-col justify-center justify-items-center rounded-[40px] border border-[#363636] bg-[#FFC9C9]">
             <div className="flex flex-col items-center">
               <Image
                 src={"/main/santa.png"}

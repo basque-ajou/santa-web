@@ -5,6 +5,7 @@ export type Message = {
   content: string;
   gift: string;
   timestamp: Date;
+  gift: string;
   isSuccess: boolean;
 };
 

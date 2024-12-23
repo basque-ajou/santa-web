@@ -1,9 +1,12 @@
 "use client";
+
+import { useState, useEffect } from "react";
+
 import { ChatRoom } from "@/app/components/ChatRoom";
-import { ChatList } from "@/app/components/ChatList";
 import { ChatBottom } from "@/app/components/ChatBottom";
-import { useState } from "react";
 import { Top } from "@/app/components/ChatRoom/Top";
+
+import type { Message } from "@/types/chat/type";
 
 const Chat = () => {
   const [gift, setGift] = useState("");
@@ -11,23 +14,32 @@ const Chat = () => {
   const [submittedGift, setSubmittedGift] = useState("");
   const [submittedPrompt, setSubmittedPrompt] = useState("");
   const [santaSays, setSantaSays] = useState("");
+  const [nickName, setNickName] = useState("");
+  const [talkBubble, setTalkBubble] = useState<Message[]>([]);
 
-  const nickName = localStorage.getItem("nickName");
+  useEffect(() => {
+    const nameFromStorage = localStorage.getItem("nickName");
+    console.log(nameFromStorage);
+    if (nameFromStorage) {
+      setNickName(nameFromStorage);
+    }
+  }, []);
 
   return (
     <div
       className={
-        "min-w-screen-xl mx-auto flex min-h-screen flex-col items-center gap-4 bg-[#FBFFC9] px-10"
+        "min-w-screen-xl m-auto flex min-h-screen flex-col items-center gap-4 bg-[#FBFFC9] px-10 pt-5"
       }
     >
       <Top nickName={nickName} />
-
       <ChatRoom
         submittedGift={submittedGift}
         setSubmittedGift={setSubmittedGift}
         submittedPrompt={submittedPrompt}
         santaSays={santaSays}
         nickName={nickName}
+        setTalkBubble={setTalkBubble}
+        talkBubble={talkBubble}
       />
       <ChatBottom
         gift={gift}
@@ -37,6 +49,8 @@ const Chat = () => {
         setSubmittedGift={setSubmittedGift}
         setSubmittedPrompt={setSubmittedPrompt}
         setSantaSays={setSantaSays}
+        nickName={nickName}
+        setTalkBubble={setTalkBubble}
       />
     </div>
   );
