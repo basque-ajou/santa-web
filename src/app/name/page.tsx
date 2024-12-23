@@ -42,7 +42,7 @@ const Name = () => {
       <div className={"flex items-center justify-center"}>
         <div
           className={
-            "absolute left-0 top-0 flex items-center justify-center gap-[20px] p-16"
+            "absolute left-0 top-0 flex items-center justify-center gap-[20px] p-16 hover:cursor-pointer"
           }
           onClick={() => router.back()}
         >
