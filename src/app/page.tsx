@@ -29,6 +29,7 @@ const Home = () => {
           </div>
           <div
             className={"justify-items-center text-[35px] hover:cursor-pointer"}
+            onClick={() => router.push("/leaderboard")}
           >
             <p>Chat with Santa</p>
             <p className={"font-bold"}>산타와 대화하기</p>
