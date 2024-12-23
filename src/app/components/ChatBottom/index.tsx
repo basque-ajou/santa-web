@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 type Props = {
   gift: string;
   setGift: React.Dispatch<React.SetStateAction<string>>;
@@ -7,6 +9,7 @@ type Props = {
   setSubmittedPrompt: React.Dispatch<React.SetStateAction<string>>;
   setSantaSays: React.Dispatch<React.SetStateAction<string>>;
 };
+
 export const ChatBottom = ({
   gift,
   setGift,
@@ -16,8 +19,18 @@ export const ChatBottom = ({
   setSubmittedPrompt,
   setSantaSays,
 }: Props) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const onClickHandler = async () => {
+    if (!gift || !prompt) {
+      setError("선물과 이유를 모두 입력해주세요");
+      return;
+    }
+
     try {
+      setIsLoading(true);
+      setError(null);
       const data = await fetch("https://chat.basque.kro.kr/ask-santa", {
         method: "POST",
         headers: {
@@ -30,14 +43,15 @@ export const ChatBottom = ({
       setSubmittedGift(gift);
       setSubmittedPrompt(prompt);
       setSantaSays(result.response);
+      setIsLoading(false);
     } catch (e) {
       console.error("Error sending data:", e);
     }
   };
   return (
-    <div className="fixed bottom-0 flex h-fit w-full justify-center gap-4">
-      <div className="flex flex-col gap-4">
-        <div className={"flex items-center gap-[19px]"}>
+    <div className="flex h-fit w-full justify-center gap-4">
+      <div className="flex w-full flex-col gap-4">
+        <div className={"flex w-full items-center gap-[19px]"}>
           <img
             className={
               "h-[66px] w-[66px] rounded-full border border-black bg-white"
@@ -47,7 +61,7 @@ export const ChatBottom = ({
           />
           <input
             className={
-              "w-[1042px] rounded-[55px] border border-[#363636] px-[38px] py-8"
+              "w-full rounded-[55px] border border-[#363636] px-[38px] py-8"
             }
             placeholder={"받고 싶은 선물을 적어주세요."}
             onChange={(e) => setGift(e.target.value)}
@@ -63,7 +77,7 @@ export const ChatBottom = ({
           />
           <input
             className={
-              "w-[1042px] rounded-[55px] border border-[#363636] px-[38px] py-8"
+              "w-full rounded-[55px] border border-[#363636] px-[38px] py-8"
             }
             placeholder={"선물을 받고 싶은 이유를 적어주세요."}
             onChange={(e) => setPrompt(e.target.value)}
@@ -71,15 +85,22 @@ export const ChatBottom = ({
         </div>
       </div>
       <button
-        className={
-          "border-1 rounded-[30px] border-[#363636] bg-[#C9FFDE] px-[36px]"
-        }
+        className={"border-1 rounded-[30px] border-[#363636] bg-[#C9FFDE] px-8"}
         onClick={onClickHandler}
+        disabled={isLoading}
       >
-        산타에게
-        <br />
-        메세지 <br /> 보내기
+        {isLoading ? (
+          "로딩 중 . . ."
+        ) : (
+          <p>
+            산타에게
+            <br />
+            메세지 <br /> 보내기
+          </p>
+        )}
       </button>
+      {error && <p className="absolute bottom-0 text-red-500">{error}</p>}{" "}
+      {/* 에러 메시지 표시 */}
     </div>
   );
 };
