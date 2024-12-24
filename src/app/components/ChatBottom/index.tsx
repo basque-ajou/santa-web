@@ -112,7 +112,9 @@ export const ChatBottom = ({
         </div>
       </div>
       <button
-        className={"border-1 rounded-[30px] border-[#363636] bg-[#C9FFDE] px-8"}
+        className={
+          "border-1 whitespace-nowrap rounded-[30px] border-[#363636] bg-[#C9FFDE] p-6"
+        }
         onClick={onClickHandler}
         disabled={isLoading}
       >

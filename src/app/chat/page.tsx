@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import { ChatRoom } from "@/app/components/ChatRoom";
 import { ChatBottom } from "@/app/components/ChatBottom";
-import { Top } from "@/app/components/ChatRoom/Top";
+import { Top } from "@/app/components/Top";
 
 import type { Message } from "@/types/chat/type";
 
@@ -19,7 +19,6 @@ const Chat = () => {
 
   useEffect(() => {
     const nameFromStorage = localStorage.getItem("nickName");
-    console.log(nameFromStorage);
     if (nameFromStorage) {
       setNickName(nameFromStorage);
     }
@@ -28,10 +27,9 @@ const Chat = () => {
   return (
     <div
       className={
-        "min-w-screen-xl m-auto flex min-h-screen flex-col items-center gap-4 bg-[#FBFFC9] px-10 pt-5"
+        "min-w-screen-xl flex flex-col items-center gap-4 bg-[#FBFFC9] px-10"
       }
     >
-      <Top nickName={nickName} />
       <ChatRoom
         submittedGift={submittedGift}
         setSubmittedGift={setSubmittedGift}

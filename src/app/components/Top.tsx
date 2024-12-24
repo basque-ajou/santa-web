@@ -14,7 +14,11 @@ export const Top = () => {
   );
 
   return (
-    <div className={"relative flex h-[70px] w-full items-center px-10"}>
+    <div
+      className={
+        "fixed left-0 top-0 z-10 mb-8 mt-[50px] flex h-[70px] w-full justify-between px-10"
+      }
+    >
       <button
         onClick={() => router.back()}
         className={"flex items-center justify-center gap-5"}
@@ -36,7 +40,9 @@ export const Top = () => {
         className={"absolute left-1/2 top-0 -translate-x-1/2 transform"}
       />
       {nickName && (
-        <div className={"font-regular ml-auto text-2xl"}>{nickName}</div>
+        <p className={"font-regular my-auto align-middle text-2xl"}>
+          {nickName}
+        </p>
       )}
     </div>
   );

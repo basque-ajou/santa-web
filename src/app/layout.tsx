@@ -51,11 +51,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`bg-[#FBFFC9] ${myFont.variable} antialiasing relative min-h-screen py-8`}
-      >
+      <body className={`bg-[#FBFFC9] ${myFont.variable} antialiasing`}>
         <Top />
-        {children}
+        <div className={"relative flex h-full min-h-screen w-full pt-[148px]"}>
+          {children}
+        </div>
         <Analytics />
       </body>
     </html>
