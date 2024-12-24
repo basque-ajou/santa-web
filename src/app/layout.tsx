@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { Top } from "@/app/components/Top";
 
 const myFont = localFont({
   src: [
@@ -50,7 +51,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-[#FBFFC9] ${myFont.variable} antialiasing`}>
+      <body
+        className={`bg-[#FBFFC9] ${myFont.variable} antialiasing relative min-h-screen py-8`}
+      >
+        <Top />
         {children}
         <Analytics />
       </body>
