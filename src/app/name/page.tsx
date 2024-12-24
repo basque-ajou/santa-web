@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect } from "react";
 
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 
 const Name = () => {
   const router = useRouter();

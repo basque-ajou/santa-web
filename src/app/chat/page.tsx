@@ -1,55 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
-import { ChatRoom } from "@/app/components/ChatRoom";
-import { ChatBottom } from "@/app/components/ChatBottom";
-import { Top } from "@/app/components/Top";
-
-import type { Message } from "@/types/chat/type";
+import { useEffect, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
+const ChatRoom = dynamic(() => import("@/app/components/ChatRoom"), {
+  ssr: false,
+});
+const ChatBottom = dynamic(() => import("@/app/components/ChatBottom"), {
+  ssr: false,
+});
 
 const Chat = () => {
-  const [gift, setGift] = useState("");
-  const [prompt, setPrompt] = useState("");
-  const [submittedGift, setSubmittedGift] = useState("");
-  const [submittedPrompt, setSubmittedPrompt] = useState("");
-  const [santaSays, setSantaSays] = useState("");
-  const [nickName, setNickName] = useState("");
-  const [talkBubble, setTalkBubble] = useState<Message[]>([]);
-
-  useEffect(() => {
-    const nameFromStorage = localStorage.getItem("nickName");
-    if (nameFromStorage) {
-      setNickName(nameFromStorage);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const nickName = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("nickName") || "";
     }
+    return null;
   }, []);
 
   return (
-    <div
-      className={
-        "min-w-screen-xl flex flex-col items-center gap-4 bg-[#FBFFC9] px-10"
-      }
-    >
+    <div className={"flex min-h-full w-full flex-col items-center gap-4"}>
       <ChatRoom
-        submittedGift={submittedGift}
-        setSubmittedGift={setSubmittedGift}
-        submittedPrompt={submittedPrompt}
-        santaSays={santaSays}
+        isSubmitted={isSubmitted}
+        setIsSubmitted={setIsSubmitted}
         nickName={nickName}
-        setTalkBubble={setTalkBubble}
-        talkBubble={talkBubble}
       />
-      <ChatBottom
-        gift={gift}
-        setGift={setGift}
-        prompt={prompt}
-        setPrompt={setPrompt}
-        setSubmittedGift={setSubmittedGift}
-        setSubmittedPrompt={setSubmittedPrompt}
-        setSantaSays={setSantaSays}
-        nickName={nickName}
-        setTalkBubble={setTalkBubble}
-      />
+      <ChatBottom setIsSubmitted={setIsSubmitted} nickName={nickName} />
     </div>
   );
 };

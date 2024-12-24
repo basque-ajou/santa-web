@@ -53,7 +53,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`bg-[#FBFFC9] ${myFont.variable} antialiasing`}>
         <Top />
-        <div className={"relative flex h-full min-h-screen w-full pt-[148px]"}>
+        <div
+          className={
+            "relative flex h-screen w-full overflow-hidden p-10 pt-[148px]"
+          }
+        >
           {children}
         </div>
         <Analytics />

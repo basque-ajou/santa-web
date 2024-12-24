@@ -5,57 +5,42 @@ import { useRouter } from "next/navigation";
 const Home = () => {
   const router = useRouter();
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-[#FBFFC9] p-6 align-middle">
-      <Image
-        className={"absolute top-0 pt-4"}
-        width={562}
-        height={145}
-        src={"/big-santa-tell.png"}
-        alt={"santa-logo"}
-      />
-      <div className="flex w-full items-center justify-around">
-        <div
-          className={"flex flex-col justify-between hover:cursor-pointer"}
+    <main className="flex w-full flex-col items-center justify-center bg-[#FBFFC9] p-6 align-middle">
+      <div className="flex w-full max-w-[1100px] justify-between gap-4">
+        <button
+          className={"flex flex-col gap-8"}
           onClick={() => router.push("/name")}
         >
-          <div className="md: flex h-96 w-96 flex-col justify-center justify-items-center rounded-[40px] border border-[#363636] bg-[#FFC9C9]">
-            <div className="flex flex-col items-center">
-              <Image
-                src={"/main/santa.png"}
-                width={320}
-                height={329}
-                alt={"santa"}
-              />
-            </div>
+          <div className="flex items-center justify-center rounded-[40px] border border-[#363636] bg-[#FFC9C9]">
+            <Image
+              src={"/main/santa.png"}
+              width={320}
+              height={329}
+              alt={"santa"}
+            />
           </div>
-          <div
-            className={"justify-items-center text-[35px] hover:cursor-pointer"}
-            onClick={() => router.push("/leaderboard")}
-          >
+          <div className={"mx-auto text-2xl"}>
             <p>Chat with Santa</p>
             <p className={"font-bold"}>산타와 대화하기</p>
           </div>
-        </div>
-        <div className={"flex flex-col justify-between"}>
-          <div className="flex h-96 w-96 flex-col justify-center justify-items-center rounded-[40px] border border-[#363636] bg-[#C9FFDE]">
-            <div className="flex flex-col items-center">
-              <div className={"flex flex-col hover:cursor-pointer"}>
-                <Image
-                  src={"/main/christmasDate.png"}
-                  width={320}
-                  height={329}
-                  alt={"santa"}
-                />
-              </div>
-            </div>
+        </button>
+        <button
+          className={"flex flex-col gap-8"}
+          onClick={() => router.push("/leaderboard")}
+        >
+          <div className="flex items-center justify-center rounded-[40px] border border-[#363636] bg-[#C9FFDE]">
+            <Image
+              src={"/main/christmasDate.png"}
+              width={320}
+              height={329}
+              alt={"santa"}
+            />
           </div>
-          <div
-            className={"justify-items-center text-[35px] hover:cursor-pointer"}
-          >
+          <div className={"mx-auto text-2xl"}>
             <p>Leaderboard</p>
             <p className={"font-bold"}>순위 경쟁하기</p>
           </div>
-        </div>
+        </button>
       </div>
     </main>
   );
